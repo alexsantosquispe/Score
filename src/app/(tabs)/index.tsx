@@ -1,23 +1,30 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { globalStyles } from "../../styles";
-import { useEffect } from "react";
-import { apiClient } from "../../services/apiClient";
+
+import { fetchMatches } from "../../services/api";
+import { useQuery } from "@tanstack/react-query";
+import Header from "../../components/header";
+import MatchItem from "../../components/matchItem";
+import { Match } from "../../services/models/types";
+import SafeAreaWrapper from "../../components/safeAreaWrapper";
 
 export default function MatchesScreen() {
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await apiClient.from("matches").select();
-      console.log(data);
-    };
+  const { data, isLoading } = useQuery<Match[] | null>({
+    queryKey: ["matches"],
+    queryFn: fetchMatches
+  });
 
-    fetchData();
-  }, []);
+  if (isLoading) return <Text>Loading...</Text>;
 
   return (
-    <View style={globalStyles.container}>
-      <Text>Matches</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaWrapper>
+      <FlatList
+        style={[globalStyles.container, { marginTop: 16 }]}
+        data={data}
+        ListHeaderComponent={<Header title="Partidos" />}
+        keyExtractor={(item: Match) => item.id.toString()}
+        renderItem={({ item }) => <MatchItem {...item} />}
+      />
+    </SafeAreaWrapper>
   );
 }

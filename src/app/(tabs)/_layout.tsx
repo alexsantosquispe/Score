@@ -1,6 +1,5 @@
-import { Slot, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
-import { PlatformPressable } from "@react-navigation/elements";
 
 export default function TabsLayout() {
   return (
@@ -8,22 +7,15 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: "black",
-        tabBarShowLabel: false,
         tabBarStyle: {
           elevation: 0
-        },
-        tabBarButton: (props) => (
-          <PlatformPressable
-            {...props}
-            android_ripple={{ color: "transparent" }} // Disables the ripple effect for Android
-          />
-        )
+        }
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Matches",
+          title: "Partidos",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="soccer-field"
@@ -36,8 +28,8 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="teams"
         options={{
-          title: "Teams",
-          tabBarIcon: ({ color, size }) => (
+          title: "Equipos",
+          tabBarIcon: ({ color }) => (
             <Feather name="shield" color={color} size={28} />
           )
         }}
@@ -45,8 +37,8 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="players"
         options={{
-          title: "Players",
-          tabBarIcon: ({ color, size }) => (
+          title: "Jugadores",
+          tabBarIcon: ({ color }) => (
             <Feather name="users" color={color} size={28} />
           )
         }}

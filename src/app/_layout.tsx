@@ -1,7 +1,12 @@
 import "react-native-url-polyfill/auto";
-
-import { Slot } from "expo-router";
+import { Stack } from "expo-router";
+import { QueryClientProvider } from "@tanstack/react-query";
+import queryClient from "../services/queryClient";
 
 export default function RootLayout() {
-  return <Slot />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Stack screenOptions={{ headerShown: false }} />
+    </QueryClientProvider>
+  );
 }
