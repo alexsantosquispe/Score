@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 interface HeaderProps {
   title: string;
 }
 
-export default function Header({ title }: HeaderProps) {
+export default function HeaderPage({ title }: HeaderProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Platform, SafeAreaView as NativeSafeAreaView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { globalStyles } from "../styles";
+import { globalStyles } from "../../styles";
 
 interface SafeAreaWrapperProps {
   children: ReactNode;

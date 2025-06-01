@@ -1,12 +1,12 @@
-import { FlatList, Text, View } from "react-native";
-import { globalStyles } from "../../styles";
+import { FlatList, Text } from "react-native";
 
-import { fetchMatches } from "../../services/api";
-import { useQuery } from "@tanstack/react-query";
-import Header from "../../components/header";
-import MatchItem from "../../components/matchItem";
+import HeaderPage from "../../components/atoms/HeaderPage";
 import { Match } from "../../services/models/types";
-import SafeAreaWrapper from "../../components/safeAreaWrapper";
+import MatchItem from "../../components/molecules/MatchItem";
+import SafeAreaWrapper from "../../components/atoms/SafeAreaWrapper";
+import { fetchMatches } from "../../services/api";
+import { globalStyles } from "../../styles";
+import { useQuery } from "@tanstack/react-query";
 
 export default function MatchesScreen() {
   const { data, isLoading } = useQuery<Match[] | null>({
@@ -21,7 +21,7 @@ export default function MatchesScreen() {
       <FlatList
         style={[globalStyles.container, { marginTop: 16 }]}
         data={data}
-        ListHeaderComponent={<Header title="Partidos" />}
+        ListHeaderComponent={<HeaderPage title="Partidos" />}
         keyExtractor={(item: Match) => item.id.toString()}
         renderItem={({ item }) => <MatchItem {...item} />}
       />

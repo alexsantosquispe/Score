@@ -11,6 +11,14 @@ export interface Manager {
   teamId: number;
 }
 
+export interface TeamWithManager {
+  teamId: number;
+  teamName: string;
+  managerFirstName: string;
+  managerLastName: string;
+  managerAge: number;
+}
+
 export interface Player {
   id: number;
   firstName: string;

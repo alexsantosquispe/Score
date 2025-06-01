@@ -1,4 +1,5 @@
 import { Platform, StyleSheet } from "react-native";
+
 import { colors } from "./constants";
 
 export const globalStyles = StyleSheet.create({
@@ -11,8 +12,8 @@ export const globalStyles = StyleSheet.create({
     ...Platform.select({
       ios: {
         padding: 4,
-        paddingLeft: 16,
-        paddingRight: 16
+        paddingLeft: 12,
+        paddingRight: 12
       },
       android: {
         padding: 16

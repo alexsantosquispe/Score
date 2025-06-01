@@ -1,4 +1,4 @@
-import { Manager, Match, Player, Team } from "./models/types";
+import { Manager, Match, Player, Team, TeamWithManager } from "./models/types";
 import { supabaseClient } from "./supabase";
 
 export const fetchMatches = async (): Promise<Match[] | null> => {
@@ -6,13 +6,8 @@ export const fetchMatches = async (): Promise<Match[] | null> => {
   return response.data;
 };
 
-export const fetchManagers = async (): Promise<Manager[] | null> => {
-  const response = await supabaseClient.from("managers").select();
-  return response.data;
-};
-
-export const fetchTeams = async (): Promise<Team[] | null> => {
-  const response = await supabaseClient.from("teams").select();
+export const fetchTeams = async (): Promise<TeamWithManager[] | null> => {
+  const response = await supabaseClient.rpc("get_teams");
   return response.data;
 };
 
