@@ -15,11 +15,11 @@ export default function HeaderPage({ title }: HeaderProps) {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    paddingTop: 4,
-    paddingBottom: 8
+    paddingTop: 12,
+    paddingBottom: 16
   },
   title: {
-    fontSize: 40,
+    fontSize: 38,
     fontWeight: "500"
   }
 });

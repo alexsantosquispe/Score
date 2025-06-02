@@ -1,6 +1,7 @@
 import { FlatList, Text } from "react-native";
 
 import HeaderPage from "../../components/atoms/HeaderPage";
+import Loading from "../../components/atoms/Loading";
 import { Match } from "../../services/models/types";
 import MatchItem from "../../components/molecules/MatchItem";
 import SafeAreaWrapper from "../../components/atoms/SafeAreaWrapper";
@@ -14,12 +15,15 @@ export default function MatchesScreen() {
     queryFn: fetchMatches
   });
 
-  if (isLoading) return <Text>Loading...</Text>;
+  if (isLoading) return <Loading />;
 
   return (
     <SafeAreaWrapper>
       <FlatList
-        style={[globalStyles.container, { marginTop: 16 }]}
+        style={
+          (globalStyles.container,
+          { paddingVertical: 0, paddingHorizontal: 16 })
+        }
         data={data}
         ListHeaderComponent={<HeaderPage title="Partidos" />}
         keyExtractor={(item: Match) => item.id.toString()}

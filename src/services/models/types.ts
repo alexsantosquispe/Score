@@ -23,10 +23,11 @@ export interface Player {
   id: number;
   firstName: string;
   lastName: string;
-  position: "Goalkeeper" | "Defender" | "Midfielder" | "Forward";
+  position: "Portero" | "Defensa" | "Centrocampista" | "Delantero";
   squadNumber: number;
   age: number;
   teamId: number;
+  teamName: string;
 }
 
 export interface Match {

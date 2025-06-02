@@ -9,6 +9,7 @@ export const globalStyles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    margin: 0,
     ...Platform.select({
       ios: {
         padding: 4,
@@ -20,5 +21,11 @@ export const globalStyles = StyleSheet.create({
       }
     }),
     backgroundColor: colors.background
+  },
+  centeredContainer: {
+    flex: 1,
+    padding: 16,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

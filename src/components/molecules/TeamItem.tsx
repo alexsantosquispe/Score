@@ -5,34 +5,26 @@ import LogoTeamWithName from "./LogoTeamWithName";
 import { TeamWithManager } from "../../services/models/types";
 
 export default function TeamItem({
-  teamId,
   teamName,
   managerFirstName,
   managerLastName
 }: TeamWithManager) {
-  const logoSource =
-    teamName && teamName in LOGOS_MAP
-      ? LOGOS_MAP[teamName as keyof typeof LOGOS_MAP]
-      : null;
-
   return (
     <View style={styles.container}>
       <LogoTeamWithName
         teamName={teamName}
         containerStyles={{
-          flex: 1,
-          flexGrow: 0,
           width: "40%",
-          flexDirection: "row"
+          alignItems: "flex-start"
         }}
         logoWrapperStyles={{ backgroundColor: "white" }}
         isTitleHidden={true}
-        logoSize={100}
+        logoSize={90}
       />
 
       <View style={styles.detailContainer}>
         <Text style={styles.teamName}>{teamName}</Text>
-        <View style={styles.managerContainer}>
+        <View>
           <Text style={styles.mangerText}>Director Técnico</Text>
           <Text
             style={styles.mangerName}
@@ -45,6 +37,7 @@ export default function TeamItem({
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: "row",
     backgroundColor: "white",
     borderRadius: 18,
@@ -52,22 +45,14 @@ const styles = StyleSheet.create({
     marginBottom: 16
   },
   detailContainer: {
-    flex: 1,
+    width: "55%",
     justifyContent: "space-between"
   },
   teamName: {
     flexWrap: "wrap",
-    fontSize: 28,
-    fontWeight: 600,
+    fontSize: 24,
+    fontWeight: 500,
     marginBottom: 8
-  },
-  managerContainer: {
-    flex: 1,
-    flexGrow: 0,
-    paddingInline: 12,
-    paddingBlock: 8,
-    borderRadius: 16,
-    backgroundColor: "whitesmoke"
   },
   mangerText: {
     fontWeight: 600,
