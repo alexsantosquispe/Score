@@ -38,20 +38,13 @@ This is an app to check matches, teams, and players info of different soccer tea
 
 ## Screenshots
 
-### Matches and Players list
+### Matches - Teams - Players list
 
 <div style="display:flex; gap: 12px;">
-  <img src="./screenshots/matches.png" alt="matches" width="40%"/>
-
-  <img src="./screenshots/players.png" alt="players" width="40%"/>
-</div>
-
-### Teams and Create a new team
-
-<div style="display:flex; gap: 12px;">
-  <img src="./screenshots/teams.png" alt="teams" width="40%"/>
-  
-  <img src="./screenshots/new-team.png" alt="new teams" width="40%"/>
+  <img src="./screenshots/matches.png" alt="matches" width="20%"/>
+  <img src="./screenshots/players.png" alt="players" width="20%"/>
+  <img src="./screenshots/new-team.png" alt="new teams" width="20%"/>
+  <img src="./screenshots/teams.png" alt="teams" width="20%"/>
 </div>
 
 ## Main Libraries Used
