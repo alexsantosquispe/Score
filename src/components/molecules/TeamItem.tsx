@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     backgroundColor: "white",
-    borderRadius: 18,
+    borderRadius: 12,
     padding: 12,
     marginBottom: 16
   },
   detailContainer: {
     width: "55%",
-    justifyContent: "space-between"
+    justifyContent: "center"
   },
   teamName: {
     flexWrap: "wrap",

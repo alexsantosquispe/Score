@@ -14,7 +14,6 @@ export default function HeaderPage({ title }: HeaderProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
     paddingTop: 12,
     paddingBottom: 16
   },

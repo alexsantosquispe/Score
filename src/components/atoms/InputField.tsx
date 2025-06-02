@@ -1,18 +1,25 @@
 import { StyleSheet, TextInput, View } from "react-native";
 
 import { colors } from "../../constants";
-import { useState } from "react";
 
-type SearchBarProps = {
+type InputFieldProps = {
+  value: string;
+  placeholder?: string;
+  keyboardType?: "default" | "numeric" | "email-address" | "phone-pad";
   onChange: (text: string) => void;
 };
 
-export default function SearchBar({ onChange }: SearchBarProps) {
+export default function InputField({
+  value,
+  placeholder,
+  onChange,
+  keyboardType = "default"
+}: InputFieldProps) {
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder="Buscar por posición..."
+        placeholder={placeholder}
         onChangeText={onChange}
         autoCapitalize="none"
         clearButtonMode="while-editing"
