@@ -1,5 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import { LOGOS_MAP, colors } from "../../constants";
+import { StyleSheet, Text, View } from "react-native";
 
 import LogoTeamWithName from "./LogoTeamWithName";
 import { TeamWithManager } from "../../services/models/types";

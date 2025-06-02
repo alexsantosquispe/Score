@@ -1,4 +1,4 @@
-import { Button, FlatList, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 
 import CustomButton from "../../components/atoms/CustomButton";
 import EmptyScreen from "../../components/atoms/EmptyScreen";
