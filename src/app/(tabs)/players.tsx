@@ -20,7 +20,9 @@ export default function PlayersScreen() {
   });
 
   const filteredPlayers = useMemo(() => {
-    return !!searchText.trim()
+    if (!data?.length || !searchText.trim()) return data;
+
+    return !!searchText.trim() && data?.length
       ? data?.filter((player) =>
           player.position.toLowerCase().includes(searchText.toLowerCase())
         )

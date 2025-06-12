@@ -21,31 +21,29 @@ export default function TeamsScreen() {
   if (isLoading) return <Loading />;
 
   const router = useRouter();
-
   const handleAddTeam = () => {
     router.push("(modals)/new-team");
   };
 
   return (
     <SafeAreaWrapper customStyles={{ paddingBottom: 0 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingHorizontal: 16
+        }}
+      >
+        <HeaderPage title="Teams" />
+        <CustomButton label="New Team" onPress={handleAddTeam} />
+      </View>
       <FlatList
         style={[globalStyles.container, { paddingVertical: 0 }]}
         data={data}
         keyExtractor={(item) => item.teamId}
         renderItem={({ item }) => <TeamItem {...item} />}
-        ListHeaderComponent={
-          <View
-            style={{
-              flexDirection: "row",
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "space-between"
-            }}
-          >
-            <HeaderPage title="Teams" />
-            <CustomButton label="New Team" onPress={handleAddTeam} />
-          </View>
-        }
         ListEmptyComponent={() => <EmptyScreen />}
       />
     </SafeAreaWrapper>
