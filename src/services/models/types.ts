@@ -1,5 +1,14 @@
+export const POSITION = {
+  GOALKEEPER: "Goalkeeper",
+  DEFENDER: "Defender",
+  MIDFIELDER: "Midfielder",
+  FORWARD: "Forward"
+} as const;
+
+export type Position = (typeof POSITION)[keyof typeof POSITION];
+
 export interface Team {
-  id: number;
+  id: string;
   name: string;
 }
 
@@ -23,14 +32,13 @@ export interface TeamWithManager {
 }
 
 export interface Player {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
-  position: "Portero" | "Defensa" | "Centrocampista" | "Delantero";
+  position: Position;
   squadNumber: number;
   age: number;
-  teamId: number;
-  teamName: string;
+  teams: Team;
 }
 
 export interface Match {

@@ -56,7 +56,8 @@ export default function LogoTeamWithName({
 const styles = StyleSheet.create({
   teamWrapper: {
     alignContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    width: "30%"
   },
   logoWrapper: {
     justifyContent: "center",

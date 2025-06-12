@@ -1,7 +1,7 @@
 import { Feather, Ionicons } from "@expo/vector-icons"; // Import icons if needed
+import { POSITION, Player } from "../../services/models/types";
 import { StyleSheet, Text, View } from "react-native";
 
-import { Player } from "../../services/models/types";
 import { colors } from "../../constants";
 
 type PlayerItemProps = Player & {
@@ -9,10 +9,10 @@ type PlayerItemProps = Player & {
 };
 
 const POSITIONS_COLORS = {
-  ["Portero"]: "dimgray",
-  ["Defensa"]: "lightseagreen",
-  ["Centrocampista"]: "royalblue",
-  ["Delantero"]: "orangered"
+  [POSITION.GOALKEEPER]: "dimgray",
+  [POSITION.DEFENDER]: "lightseagreen",
+  [POSITION.MIDFIELDER]: "royalblue",
+  [POSITION.FORWARD]: "orangered"
 };
 
 export default function PlayerItem({
@@ -21,7 +21,7 @@ export default function PlayerItem({
   lastName,
   position,
   squadNumber,
-  teamName
+  teams
 }: PlayerItemProps) {
   const positionColor = POSITIONS_COLORS[position] || "gray";
 
@@ -38,8 +38,9 @@ export default function PlayerItem({
           </View>
 
           <View style={styles.nameWrapper}>
-            <Text style={styles.nameText}>{`${firstName} ${lastName}`}</Text>
-
+            <Text style={styles.nameText}>{`${[firstName, lastName]
+              .join(" ")
+              .trim()}`}</Text>
             <View style={styles.badgesSection}>
               <View style={styles.squadWrapper}>
                 <Ionicons name="shirt" size={18} color="gray" />
@@ -59,7 +60,7 @@ export default function PlayerItem({
         </View>
       </View>
       <Text style={{ fontWeight: 600, color: "dimgray", fontSize: 12 }}>
-        {teamName}
+        {teams?.name || "--"}
       </Text>
     </View>
   );

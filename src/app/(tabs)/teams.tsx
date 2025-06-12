@@ -29,7 +29,7 @@ export default function TeamsScreen() {
   return (
     <SafeAreaWrapper customStyles={{ paddingBottom: 0 }}>
       <FlatList
-        style={globalStyles.container}
+        style={[globalStyles.container, { paddingVertical: 0 }]}
         data={data}
         keyExtractor={(item) => item.teamId}
         renderItem={({ item }) => <TeamItem {...item} />}
@@ -38,8 +38,8 @@ export default function TeamsScreen() {
             style={{
               flexDirection: "row",
               width: "100%",
-              justifyContent: "space-between",
-              alignItems: "center"
+              alignItems: "center",
+              justifyContent: "space-between"
             }}
           >
             <HeaderPage title="Teams" />

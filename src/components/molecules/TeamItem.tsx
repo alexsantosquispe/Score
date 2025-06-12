@@ -17,7 +17,7 @@ export default function TeamItem({
         containerStyles={{ alignItems: "flex-start" }}
         logoWrapperStyles={{ backgroundColor: "white" }}
         isTitleHidden={true}
-        logoSize={60}
+        logoSize={70}
       />
 
       <View style={styles.detailContainer}>
@@ -42,14 +42,13 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   detailContainer: {
-    width: "55%",
     justifyContent: "center"
   },
   teamName: {
     flexWrap: "wrap",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: 500,
-    marginBottom: 8
+    marginBottom: 12
   },
   mangerText: {
     fontWeight: 600,
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
     color: "gray"
   },
   mangerName: {
-    fontWeight: 600,
+    fontWeight: 500,
     fontSize: 12
   }
 });

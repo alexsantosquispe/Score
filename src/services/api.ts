@@ -13,7 +13,10 @@ export const fetchTeams = async (): Promise<TeamWithManager[] | null> => {
 };
 
 export const fetchPlayers = async (): Promise<Player[] | null> => {
-  const response = await supabaseClient.rpc("get_players");
+  const response = await supabaseClient
+    .from("players")
+    .select(`*, teams!inner (id, name)`)
+    .order("lastName", { ascending: true });
   return response.data;
 };
 

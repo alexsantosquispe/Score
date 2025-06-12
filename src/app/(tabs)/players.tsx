@@ -41,8 +41,8 @@ export default function PlayersScreen() {
         <SearchBar onChange={setSearchText} />
         <FlatList
           style={(globalStyles.container, { padding: 0 })}
-          data={filteredPlayers || []}
-          keyExtractor={(item) => item.id.toString()}
+          data={filteredPlayers}
+          keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <PlayerItem indexRow={index + 1} {...item} />
           )}
