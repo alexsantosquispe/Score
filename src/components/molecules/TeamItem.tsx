@@ -5,6 +5,7 @@ import { TeamWithManager } from "../../services/models/types";
 
 export default function TeamItem({
   teamName,
+  teamLogo,
   managerFirstName,
   managerLastName
 }: TeamWithManager) {
@@ -12,19 +13,17 @@ export default function TeamItem({
     <View style={styles.container}>
       <LogoTeamWithName
         teamName={teamName}
-        containerStyles={{
-          width: "40%",
-          alignItems: "flex-start"
-        }}
+        uri={teamLogo}
+        containerStyles={{ alignItems: "flex-start" }}
         logoWrapperStyles={{ backgroundColor: "white" }}
         isTitleHidden={true}
-        logoSize={90}
+        logoSize={60}
       />
 
       <View style={styles.detailContainer}>
         <Text style={styles.teamName}>{teamName}</Text>
         <View>
-          <Text style={styles.mangerText}>Director Técnico</Text>
+          <Text style={styles.mangerText}>Manager</Text>
           <Text
             style={styles.mangerName}
           >{`${managerFirstName} ${managerLastName}`}</Text>
@@ -40,8 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "white",
     borderRadius: 12,
-    padding: 12,
-    marginBottom: 16
+    marginBottom: 8
   },
   detailContainer: {
     width: "55%",
@@ -49,18 +47,17 @@ const styles = StyleSheet.create({
   },
   teamName: {
     flexWrap: "wrap",
-    fontSize: 24,
+    fontSize: 15,
     fontWeight: 500,
     marginBottom: 8
   },
   mangerText: {
     fontWeight: 600,
-    fontSize: 13,
-    marginBottom: 4,
+    fontSize: 10,
     color: "gray"
   },
   mangerName: {
     fontWeight: 600,
-    fontSize: 16
+    fontSize: 12
   }
 });

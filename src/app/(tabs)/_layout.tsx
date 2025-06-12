@@ -15,7 +15,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Partidos",
+          title: "Matches",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="soccer-field"
@@ -28,7 +28,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="teams"
         options={{
-          title: "Equipos",
+          title: "Teams",
           tabBarIcon: ({ color }) => (
             <Feather name="shield" color={color} size={28} />
           )
@@ -37,7 +37,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="players"
         options={{
-          title: "Jugadores",
+          title: "Players",
           tabBarIcon: ({ color }) => (
             <Feather name="users" color={color} size={28} />
           )

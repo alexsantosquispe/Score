@@ -3,7 +3,7 @@ import { Match, Player, TeamWithManager } from "./models/types";
 import { supabaseClient } from "./supabase";
 
 export const fetchMatches = async (): Promise<Match[] | null> => {
-  const response = await supabaseClient.rpc("get_matches");
+  const response = await supabaseClient.from("matches").select();
   return response.data;
 };
 

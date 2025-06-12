@@ -4,7 +4,7 @@ import React from "react";
 import { globalStyles } from "../../styles";
 
 export default function EmptyScreen({
-  message = "No hay datos para mostrar"
+  message = "No data to display"
 }: {
   message?: string;
 }) {

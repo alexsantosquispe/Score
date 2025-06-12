@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 
 import CustomButton from "../../components/atoms/CustomButton";
 import EmptyScreen from "../../components/atoms/EmptyScreen";
@@ -27,11 +27,11 @@ export default function TeamsScreen() {
   };
 
   return (
-    <SafeAreaWrapper>
+    <SafeAreaWrapper customStyles={{ paddingBottom: 0 }}>
       <FlatList
         style={globalStyles.container}
         data={data}
-        keyExtractor={(item) => item.teamId.toString()}
+        keyExtractor={(item) => item.teamId}
         renderItem={({ item }) => <TeamItem {...item} />}
         ListHeaderComponent={
           <View
@@ -42,8 +42,8 @@ export default function TeamsScreen() {
               alignItems: "center"
             }}
           >
-            <HeaderPage title="Equipos" />
-            <CustomButton label="Nuevo Equipo" onPress={handleAddTeam} />
+            <HeaderPage title="Teams" />
+            <CustomButton label="New Team" onPress={handleAddTeam} />
           </View>
         }
         ListEmptyComponent={() => <EmptyScreen />}

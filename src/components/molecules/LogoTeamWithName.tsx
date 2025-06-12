@@ -7,11 +7,12 @@ import {
   ViewStyle
 } from "react-native";
 
-import { LOGOS_MAP } from "../../constants";
 import { Octicons } from "@expo/vector-icons";
+import { SvgUri } from "react-native-svg";
 
 interface LogoTeam {
   teamName: string;
+  uri: string;
   containerStyles?: StyleProp<ViewStyle>;
   logoWrapperStyles?: StyleProp<ViewStyle>;
   logoSize?: number;
@@ -21,6 +22,7 @@ interface LogoTeam {
 
 export default function LogoTeamWithName({
   teamName,
+  uri,
   containerStyles = {},
   logoWrapperStyles = {},
   logoSize = 60,
@@ -28,10 +30,6 @@ export default function LogoTeamWithName({
   isTitleHidden = false
 }: LogoTeam) {
   const wrapperSize = logoSize + wrapperPadding;
-  const logoSource =
-    teamName && teamName in LOGOS_MAP
-      ? LOGOS_MAP[teamName as keyof typeof LOGOS_MAP]
-      : null;
 
   return (
     <View style={[styles.teamWrapper, containerStyles]}>
@@ -42,11 +40,8 @@ export default function LogoTeamWithName({
           logoWrapperStyles
         ]}
       >
-        {logoSource ? (
-          <Image
-            source={logoSource}
-            style={{ width: logoSize, height: logoSize }}
-          />
+        {uri ? (
+          <SvgUri width={logoSize} height={logoSize} uri={uri} />
         ) : (
           <View>
             <Octicons name="shield" size={logoSize} color="gray" />
@@ -61,8 +56,7 @@ export default function LogoTeamWithName({
 const styles = StyleSheet.create({
   teamWrapper: {
     alignContent: "space-between",
-    alignItems: "center",
-    width: "33%"
+    alignItems: "center"
   },
   logoWrapper: {
     justifyContent: "center",

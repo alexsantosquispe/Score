@@ -37,7 +37,7 @@ export default function PlayersScreen() {
           { backgroundColor: "white", paddingVertical: 0 }
         ]}
       >
-        <HeaderPage title="Jugadores" />
+        <HeaderPage title="Players" />
         <SearchBar onChange={setSearchText} />
         <FlatList
           style={(globalStyles.container, { padding: 0 })}

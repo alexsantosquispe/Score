@@ -12,7 +12,7 @@ export default function SearchBar({ onChange }: SearchBarProps) {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder="Buscar por posición..."
+        placeholder="Search by position..."
         onChangeText={onChange}
         autoCapitalize="none"
         clearButtonMode="while-editing"
